@@ -1,7 +1,8 @@
 //selectors
 const toDoInput = document.querySelector(".todo-input");
 const toDoButton = document.querySelector(".todo-button");
-const toDoList = document.querySelector(".todo-list ");
+const toDoList = document.querySelector(".todo-list");
+const filterOption = document.querySelector(".filter-todo");
 
 //function adding to do
 const addToDo = (e) => {
@@ -30,37 +31,61 @@ const addToDo = (e) => {
   trashButton.classList.add("trash-btn");
   todoDiv.appendChild(trashButton);
   //prevent from adding empty li
-  if(toDoInput.value !== ''){
+  if (toDoInput.value !== "") {
     toDoList.appendChild(todoDiv);
-  }else alert('write sometching first 🦥')
+  } else alert("write sometching first 🦥");
   //clear input value
-  toDoInput.value = ''
+  toDoInput.value = "";
 };
 
 //function deliting or check activation
 
-const deleteCheck =(e)=>{
-  const item = e.target
+const deleteCheck = (e) => {
+  const item = e.target;
 
   //delete item
-  if(item.classList[0] === 'trash-btn'){
+  if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
     //animation
-    todo.classList.add('fall')
+    todo.classList.add("fall");
     //wait for the end of animation
-    todo.addEventListener('transitionend', ()=>{
+    todo.addEventListener("transitionend", () => {
       todo.remove();
-    })
+    });
   }
-  if(item.classList[0] === 'complete-btn'){
+  if (item.classList[0] === "complete-btn") {
     const todo = item.parentElement;
 
-    todo.classList.toggle('completed')
+    todo.classList.toggle("completed");
   }
+};
 
+//function filter todos by status
+function filterToDo(e) {
+  const todos = toDoList.childNodes;
+  todos.forEach(function(todo){
+    switch(e.target.value) {
+      case 'all':
+        todo.style.display = 'flex';
+        break;
+      case 'completed':
+        if(todo.classList.contains('completed')){
+          todo.style.display = 'flex';
+        }else{
+          todo.style.display = 'none';
+        }
+        break;
+        case 'uncompleted':
+        if(!todo.classList.contains('completed')){
+          todo.style.display = 'flex';
+        }else{
+          todo.style.display = 'none';
+        }
+    }
+  })
 }
-
 
 //event listener
 toDoButton.addEventListener("click", addToDo);
-toDoList.addEventListener('click', deleteCheck);
+toDoList.addEventListener("click", deleteCheck);
+filterOption.addEventListener("click", filterToDo);
