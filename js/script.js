@@ -39,8 +39,25 @@ const addToDo = (e) => {
 
 //function deliting or check activation
 
-const deleteCheck =()=>{
-  
+const deleteCheck =(e)=>{
+  const item = e.target
+
+  //delete item
+  if(item.classList[0] === 'trash-btn'){
+    const todo = item.parentElement;
+    //animation
+    todo.classList.add('fall')
+    //wait for the end of animation
+    todo.addEventListener('transitionend', ()=>{
+      todo.remove();
+    })
+  }
+  if(item.classList[0] === 'complete-btn'){
+    const todo = item.parentElement;
+
+    todo.classList.toggle('completed')
+  }
+
 }
 
 

@@ -16,6 +16,9 @@ $base-size: 10px;
 $font-main: 'Roboto',
 sans-serif;
 
+//transition
+$transition: all .4s ease;;
+
 //container
 body {
   font-family: $font-main;
@@ -57,7 +60,7 @@ form button {
   color: $color-main;
   background: $color-light;
   cursor: pointer;
-  transition: all .4s ease;
+  transition: $transition;
 
   &:hover {
     background: $color-main;
@@ -85,6 +88,7 @@ form button {
   justify-content: space-between;
   align-items: center;
   padding: 0 0 0 $base-size;
+  transition: $transition;
 
   li {
     flex: 1;
@@ -99,18 +103,86 @@ form button {
     background: $color-main;
     color: $color-light;
     padding: $base-size * 1.5;
-    border: none;
+    border: 4px solid transparent;
     cursor: pointer;
     font-size: $base-size * 2;
     outline: none;
+    transition: $transition;
   }
 
   .complete-btn{
     margin-left: $base-size;
+
+    &:hover {
+      background: $color-light;
+      color: $color-main;
+      border: solid 4px $color-main;
+    }
   }
 
   .trash-btn {
     background: $color-danger;
+
+    &:hover {
+      background: $color-light;
+      color: $color-danger;
+      border: solid 4px $color-danger;
+    }
   }
 
 }
+
+.fa-trash,
+.fa-check{
+  pointer-events: none;
+}
+
+.completed{
+  opacity: .4;
+  text-decoration: line-through;
+}
+
+//animation remove item
+.fall {
+  transform: translateY(10rem) rotateZ(20deg);
+  opacity: 0;
+}
+// select element
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  width: $base-size * 18 ;
+  cursor: pointer;
+  font-size: $base-size * 2;
+  padding: $base-size;
+  background: $color-light;
+}
+
+.select{
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+  color: $color-light;
+
+  &::after{
+    content: '\25BC';
+    position: absolute;
+    background: $color-main;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: $base-size * 1.5;
+    pointer-events: none;
+    transition: $transition;
+  }
+}
+
+.select:hover::after{
+  background: $color-light;
+  color: $color-main;
+}
+
