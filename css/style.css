@@ -7,26 +7,14 @@
 body {
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center;
+  background: #adaeae;
   font-size: 10px;
-}
-
-.app-container {
-  min-width: 600px;
-  min-height: 90vh;
-  border: solid 1px black;
-  padding: 10px;
-  background-color: #609d9f;
 }
 
 header {
   font-size: 18px;
   text-transform: uppercase;
+  min-height: 20vh;
 }
 
 header,
@@ -59,5 +47,60 @@ form button {
 form button:hover {
   background: #609d9f;
   color: #ffffff;
+}
+
+.todo-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.todo-list {
+  min-width: 40%;
+  list-style: none;
+}
+
+.todo {
+  background: #ffffff;
+  margin: 5px;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 18px;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 0 0 0 10px;
+}
+
+.todo li {
+  -ms-flex: 1;
+      flex: 1;
+}
+
+.todo li::first-letter {
+  text-transform: capitalize;
+}
+
+.todo .trash-btn,
+.todo .complete-btn {
+  background: #609d9f;
+  color: #ffffff;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  outline: none;
+}
+
+.todo .complete-btn {
+  margin-left: 10px;
+}
+
+.todo .trash-btn {
+  background: #ffa500;
 }
 /*# sourceMappingURL=style.css.map */
