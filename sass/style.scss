@@ -17,21 +17,21 @@ $font-main: 'Roboto',
 sans-serif;
 
 //transition
-$transition: all .4s ease;;
+$transition: all .4s ease;
+;
 
 //container
 body {
   font-family: $font-main;
   min-height: 100vh;
-  background: $color-background;
-  font-size: $base-size;
+  background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(182, 192, 54, 1) 68%, rgba(182, 192, 54, 1) 97%);
 }
 
 
 //form and submit
 header {
   font-size: (1.8 * $base-size);
-  text-transform: uppercase;
   min-height: 20vh;
 }
 
@@ -76,7 +76,7 @@ form button {
 }
 
 .todo-list {
-  min-width: 40%;
+  min-width: 60%;
   list-style: none;
 }
 
@@ -93,7 +93,7 @@ form button {
   li {
     flex: 1;
 
-    &::first-letter{
+    &::first-letter {
       text-transform: capitalize;
     }
   }
@@ -110,7 +110,7 @@ form button {
     transition: $transition;
   }
 
-  .complete-btn{
+  .complete-btn {
     margin-left: $base-size;
 
     &:hover {
@@ -133,11 +133,11 @@ form button {
 }
 
 .fa-trash,
-.fa-check{
+.fa-check {
   pointer-events: none;
 }
 
-.completed{
+.completed {
   opacity: .4;
   text-decoration: line-through;
 }
@@ -147,27 +147,28 @@ form button {
   transform: translateY(10rem) rotateZ(20deg);
   opacity: 0;
 }
+
 // select element
-select{
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: none;
   border: none;
-  width: $base-size * 18 ;
+  width: $base-size * 18;
   cursor: pointer;
   font-size: $base-size * 2;
-  padding: $base-size;
+  padding: $base-size ;
   background: $color-light;
 }
 
-.select{
+.select {
   margin: 1rem;
   position: relative;
   overflow: hidden;
   color: $color-light;
 
-  &::after{
+  &::after {
     content: '\25BC';
     position: absolute;
     background: $color-main;
@@ -181,8 +182,36 @@ select{
   }
 }
 
-.select:hover::after{
+.select:hover::after {
   background: $color-light;
   color: $color-main;
 }
 
+@media (max-width: 768px) {
+  .todo-container {
+    padding: $base-size;
+    border: solid 1px pink;
+
+    .todo-list {
+      width: 100%;
+    }
+  }
+
+  form {
+    width: 100%;
+    padding: $base-size / 2;
+    border: solid 1px pink;
+
+    input {
+      min-width: 60%;
+    }
+
+    select {
+      min-width: 30%;
+    }
+
+    .select {
+      margin: $base-size/2;
+    }
+  }
+}

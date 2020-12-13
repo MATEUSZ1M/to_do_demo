@@ -7,13 +7,12 @@
 body {
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
-  background: #adaeae;
-  font-size: 10px;
+  background: #22c1c3;
+  background: radial-gradient(circle, #22c1c3 0%, #b6c036 68%, #b6c036 97%);
 }
 
 header {
   font-size: 18px;
-  text-transform: uppercase;
   min-height: 20vh;
 }
 
@@ -59,7 +58,7 @@ form button:hover {
 }
 
 .todo-list {
-  min-width: 40%;
+  min-width: 60%;
   list-style: none;
 }
 
@@ -169,5 +168,29 @@ select {
 .select:hover::after {
   background: #ffffff;
   color: #609d9f;
+}
+
+@media (max-width: 768px) {
+  .todo-container {
+    padding: 10px;
+    border: solid 1px pink;
+  }
+  .todo-container .todo-list {
+    width: 100%;
+  }
+  form {
+    width: 100%;
+    padding: 5px;
+    border: solid 1px pink;
+  }
+  form input {
+    min-width: 60%;
+  }
+  form select {
+    min-width: 30%;
+  }
+  form .select {
+    margin: 5px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
